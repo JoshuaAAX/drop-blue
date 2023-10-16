@@ -1,4 +1,4 @@
-import { Box, Button, useColorMode,Text, Heading, Spacer, VStack } from "@chakra-ui/react"
+import { Box, Button, useColorMode,Text, Heading, Spacer, VStack, Center } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react";
 
 
@@ -34,7 +34,7 @@ import { useEffect, useRef, useState } from "react";
         alignItems="center"       
         flexDirection="column"     
       >
-        <VStack>
+        <VStack alignItems="center">
         <Box 
            bg="white"
            px={2} pt={1.5} pb={1.5}>
@@ -44,10 +44,13 @@ import { useEffect, useRef, useState } from "react";
         </Box>
 
         <Spacer/>
-
-        <Heading  size='md' color="white">
+        <Heading 
+          size='md' 
+          color="white" 
+          textAlign="center">
           The website is under development. Please do not press continue:
         </Heading>
+       
 
         <Spacer m={7}/>
 
