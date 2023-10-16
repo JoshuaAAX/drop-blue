@@ -43,12 +43,14 @@ import { useEffect, useRef, useState } from "react";
            </Heading>
         </Box>
 
-        <Spacer />
+        <Spacer/>
 
         <Heading  size='md' color="white">
           The website is under development. Please do not press continue:
         </Heading>
-        <Spacer />
+
+        <Spacer m={7}/>
+
         <Box 
            bg="#808080"  
            _hover={{ bg: "white", cursor: "pointer" }} 
