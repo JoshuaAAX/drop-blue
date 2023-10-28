@@ -1,10 +1,10 @@
-import { Box, Button, useColorMode,Text, Heading, Spacer, VStack, Center } from "@chakra-ui/react"
+import { Box, Button, useColorMode,Text, Heading, Spacer, VStack, Center, useBoolean } from "@chakra-ui/react"
 import { useEffect, useRef, useState } from "react";
 
 
   function App() {
-
-   const [isFullScreen, setIsFullScreen] = useState(false);
+    
+   const [isFullScreen, setIsFullScreen] = useBoolean(false);
    const videoRef = useRef(null);
     
    useEffect(() => {
@@ -13,9 +13,9 @@ import { useEffect, useRef, useState } from "react";
         console.error("Error attempting to enable full-screen mode:", err);
       });
     } else {
-      document.exitFullscreen().catch((err) => {
-        console.error("Error attempting to exit full-screen mode:", err);
-      });
+     // document.exitFullscreen().catch((err) => {
+      //  console.error("Error attempting to exit full-screen mode:", err);
+    //  });
     }
   }, [isFullScreen]);
 
@@ -54,16 +54,16 @@ import { useEffect, useRef, useState } from "react";
 
         <Spacer m={7}/>
 
-        <Box 
+       {!isFullScreen && ( <Box 
            bg="#808080"  
            _hover={{ bg: "white", cursor: "pointer" }} 
            px={1} pt={1} pb ={1}
-           onClick={fullScreen}
+           onClick={setIsFullScreen.toggle}
         >
            <Heading  size='md' color="#0000AA" >
             Continue
            </Heading>
-        </Box>
+        </Box>)}
 
         {isFullScreen && (
         <video 
@@ -73,6 +73,7 @@ import { useEffect, useRef, useState } from "react";
           loop>
         </video>
         )}
+
 
         </VStack>
 
